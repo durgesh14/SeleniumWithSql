@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Data Viewer</title>
+    <link rel="stylesheet" href="TestDataView.css">
+</head>
+<body>
+<h1>Test Data Viewer</h1>
+
+<!-- Link to fetch all flow names -->
+<button id="fetchFlowNames">Get All Flow Names</button>
+<div id="flowNamesList"></div>
+
+<!-- Table to display test data -->
+<h2>Test Data for Selected Flow</h2>
+<table id="testDataTable" border="1">
+    <thead>
+    <tr>
+        <th>Test Case Name</th>
+        <th>Test Key</th>
+        <th>Test Value</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+    // Fetch all flow names when button is clicked
+    document.getElementById('fetchFlowNames').addEventListener('click', function() {
+        fetch('http://localhost:4000/flow-names')
+            .then(response => response.json())
+            .then(flowNames => {
+                const flowNamesList = document.getElementById('flowNamesList');
+                flowNamesList.innerHTML = ''; // Clear existing links
+                flowNames.forEach(flow => {
+                    const link = document.createElement('a');
+                    link.href = '#';
+                    link.textContent = flow.flowName;
+                    link.onclick = function() {
+                        fetchTestData(flow.flowName);
+                    };
+                    flowNamesList.appendChild(link);
+                    flowNamesList.appendChild(document.createElement('br'));
+                });
+            })
+            .catch(err => console.error('Error fetching flow names:', err));
+    });
+
+    // Fetch test data for selected flowName
+    function fetchTestData(flowName) {
+        fetch(`http://localhost:4000/test-data/${flowName}`)
+            .then(response => response.json())
+            .then(testData => {
+                const tbody = document.querySelector('#testDataTable tbody');
+                tbody.innerHTML = ''; // Clear existing table data
+                testData.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td>${row.testCaseName}</td><td>${row.testKey}</td><td>${row.testValue}</td>`;
+                    tbody.appendChild(tr);
+                });
+            })
+            .catch(err => console.error('Error fetching test data:', err));
+    }
+</script>
+<a href="index.html">Add Test Data</a>
+</body>
+</html>

@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f7f8fa;
+    color: #333;
+}
+
+h1 {
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #555;
+    margin-top: 20px;
+}
+
+button#fetchFlowNames {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button#fetchFlowNames:hover {
+    background-color: #0056b3;
+}
+
+#flowNamesList {
+    margin-top: 10px;
+    display: flex;
+}
+
+#flowNamesList a {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+#flowNamesList a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+#testDataTable {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#testDataTable th, #testDataTable td {
+    padding: 10px;
+    text-align: left;
+}
+
+#testDataTable th {
+    background-color: #007bff;
+    color: #fff;
+    border-right-color: beige;
+}
+
+#testDataTable td {
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#testDataTable tr:hover td {
+    background-color: #f1f5fa;
+}
+/* Link styling */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 80px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
