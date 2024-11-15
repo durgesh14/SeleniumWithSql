@@ -15,55 +15,48 @@
 
 <!-- Table to display test data -->
 <h2>Test Data for Selected Flow</h2>
+
+<!-- Filter Fields -->
+<div>
+    <label for="flowFilter">Flow Name:</label>
+    <input type="text" id="flowFilter" placeholder="Enter Flow Name">
+
+    <label for="scriptFilter">Script Name:</label>
+    <input type="text" id="scriptFilter" placeholder="Enter Script Name">
+
+    <button onclick="applyFilter()">Filter</button>
+</div>
+
+<!-- Modal Popup Structure -->
+<div id="editModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal()">&times;</span>
+        <h2>Edit Test Data</h2>
+        <label>Test Script:</label>
+        <input type="text" id="modalTestScript">
+        <label>Test Key:</label>
+        <input type="text" id="modalTestKey">
+        <label>Test Value:</label>
+        <input type="text" id="modalTestValue">
+        <button onclick="saveEdit()">Save</button>
+    </div>
+</div>
+
+<div id="overlay"></div>
+
 <table id="testDataTable" border="1">
     <thead>
     <tr>
         <th>Test Case Name</th>
         <th>Test Key</th>
         <th>Test Value</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody></tbody>
 </table>
 
-<script>
-    // Fetch all flow names when button is clicked
-    document.getElementById('fetchFlowNames').addEventListener('click', function() {
-        fetch('http://localhost:4000/flow-names')
-            .then(response => response.json())
-            .then(flowNames => {
-                const flowNamesList = document.getElementById('flowNamesList');
-                flowNamesList.innerHTML = ''; // Clear existing links
-                flowNames.forEach(flow => {
-                    const link = document.createElement('a');
-                    link.href = '#';
-                    link.textContent = flow.flowName;
-                    link.onclick = function() {
-                        fetchTestData(flow.flowName);
-                    };
-                    flowNamesList.appendChild(link);
-                    flowNamesList.appendChild(document.createElement('br'));
-                });
-            })
-            .catch(err => console.error('Error fetching flow names:', err));
-    });
-
-    // Fetch test data for selected flowName
-    function fetchTestData(flowName) {
-        fetch(`http://localhost:4000/test-data/${flowName}`)
-            .then(response => response.json())
-            .then(testData => {
-                const tbody = document.querySelector('#testDataTable tbody');
-                tbody.innerHTML = ''; // Clear existing table data
-                testData.forEach(row => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `<td>${row.testCaseName}</td><td>${row.testKey}</td><td>${row.testValue}</td>`;
-                    tbody.appendChild(tr);
-                });
-            })
-            .catch(err => console.error('Error fetching test data:', err));
-    }
-</script>
+<script src="testdataview.js"></script>
 <a href="index.html">Add Test Data</a>
 </body>
 </html>

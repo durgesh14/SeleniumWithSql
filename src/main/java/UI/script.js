@@ -25,7 +25,10 @@ document.getElementById('testDataForm').addEventListener('submit', function(even
     .then(response => {
         if (response.ok) {
             alert('Data added successfully!');
-        } else {
+        } else if(response.status == 409){
+        alert('Duplicate data.');
+        }
+        else {
             alert('Error adding data.');
         }
     })
