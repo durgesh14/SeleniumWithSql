@@ -24,3 +24,7 @@ A simple Node.js-based application for managing test data, designed to replace E
 ## Add Test Data:
 
 ![image](https://github.com/user-attachments/assets/452ada90-8a0b-421d-93c6-83ccb44fa5b8)
+
+## USE IN AUTOMATION SCRIPT
+![image](https://github.com/user-attachments/assets/a1ca61fe-1f37-412f-a706-cf6ac9f2da63)
+
