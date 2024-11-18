@@ -20,7 +20,9 @@
     });
 
 // Fetch test data for a flow
+let currentFlowNameForReload = null;
     function fetchTestData(flowName) {
+        currentFlowNameForReload = flowName
         fetch(`http://localhost:4000/test-data/${flowName}`)
             .then(response => response.json())
             .then(testData => {
@@ -88,7 +90,7 @@
         // Pre-fill modal fields with the current values
         document.getElementById('modalTestScript').value = testCaseName;
         document.getElementById('modalTestKey').value = testKey;
-
+        document.getElementById('modalTestValue').value = testValue;
 
         // Display the modal and overlay
         document.getElementById('editModal').style.display = 'block';
@@ -104,6 +106,7 @@
     function saveEdit() {
         const newTestKey = document.getElementById('modalTestKey').value;
         const newTestValue = document.getElementById('modalTestValue').value;
+        const newTestName = document.getElementById('modalTestScript').value;
 
 
         // Send the updated data to the server
@@ -113,7 +116,7 @@
             body: JSON.stringify({
                 id: currentId,
                 flowName: currentFlowName,
-                testCaseName: currentTestCaseName,
+                testCaseName: newTestName,
                 testKey: newTestKey,
                 testValue: newTestValue
             })
@@ -122,7 +125,9 @@
         .then(() => {
             // Close the modal and refresh the table data
             closeModal();
-            applyFilter(); // Assuming applyFilter reloads the updated data
+//            applyFilter();
+            //window.location.reload();
+            fetchTestData(currentFlowNameForReload);
         })
         .catch(err => console.error('Error saving edited data:', err));
     }

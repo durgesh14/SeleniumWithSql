@@ -128,9 +128,9 @@ app.delete('/delete-test-data', (req, res) => {
 
 app.post('/edit-test-data', (req, res)=>{
 
-     const { id, testKey, testValue } = req.body;
-        const query = 'UPDATE TestScriptData SET testKey = ?, testValue = ? WHERE id = ?';
-        const queryParams = [testKey, testValue, id];
+     const { id, testKey, testValue, testCaseName } = req.body;
+        const query = 'UPDATE TestScriptData SET testKey = ?, testValue = ?,  testCaseName = ? WHERE id = ?';
+        const queryParams = [testKey, testValue, testCaseName, id];
     console.log(queryParams)
    db.query(query, queryParams, (err, results) => {
    console.log(query)

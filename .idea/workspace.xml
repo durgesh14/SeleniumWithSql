@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb0fc1a1-0ed8-48c0-96e7-9019d2dcf271" name="Changes" comment="Initial commit for feature/test data view: Completed implementing test data view with new code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/testdataview.js" afterDir="false" />
+    <list default="true" id="cb0fc1a1-0ed8-48c0-96e7-9019d2dcf271" name="Changes" comment="Added Update and edit feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/TestDataView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/TestDataView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/TestDataView.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/TestDataView.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/testdataview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/testdataview.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731425793176</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Update and edit feature">
+      <option name="closed" value="true" />
+      <created>1731649896580</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731649896580</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +133,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit for feature/test data view: Completed implementing test data view with new code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit for feature/test data view: Completed implementing test data view with new code" />
+    <MESSAGE value="Added Update and edit feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Update and edit feature" />
   </component>
 </project>
